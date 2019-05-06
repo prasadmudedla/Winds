@@ -26,7 +26,9 @@
     "start": "concurrently \"yarn web\" \"wait-on http://localhost:3000 && electron .\"",
     "pack": "electron-builder --dir",
     "dist": "PUBLIC_URL=./ react-scripts build && electron-builder --mac --linux --win -p always",
-    "prettier": "prettier --config ../.prettierrc --write \"src/**/*.js\""
+    "prettier": "prettier --config ../.prettierrc --write \"src/**/*.js\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "algoliasearch": "^3.30.0",
@@ -61,7 +63,8 @@
     "react-router-dom": "^4.3.1",
     "react-waypoint": "^8.1.0",
     "redux": "^4.0.1",
-    "stream-analytics": "^2.7.2"
+    "stream-analytics": "^2.7.2",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
@@ -89,5 +92,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "snyk": true
 }
